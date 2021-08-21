@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+	<div class="home">
+		<div class="home_background_container prlx_parent">
+			<div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
+		</div>
+		<div class="home_content">
+			<h1>Conversión base octal</h1>
+		</div>
+	</div>
+
+<div class="news">
+		<div class="container">
+			<div class="row">
+
+				<!-- News Column -->
+
+				<div class="col-lg-8">
+
+					<div class="news_posts">
+						<!-- News Post -->
+						<div class="news_post">
+							<div class="news_post_top d-flex flex-column flex-sm-row">
+								<div class="news_post_date_container">
+									<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
+										<div>1</div>
+										<div>Oct</div>
+									</div>
+								</div>
+								<div class="news_post_title_container">
+									<div class="news_post_title">
+										<a href="">Ingrese un número de base octal </a>
+									</div>
+									<div class="news_post_meta">
+										<span class="news_post_author">por GRUPO 2</span>
+									</div>
+
+
+									<div class="news_post_title">
+										<form class="form" action="/resultadoOctal/" method="POST">
+											{% csrf_token %}
+											<div class="camposLogin">
+												<input type="text" id="id_username" class="form-control"  name="octal" required>
+											</div>
+											<input class="btn" type="submit" value="Calcular">
+										</form>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="sidebar">
+						<div class="sidebar_section">
+							<div class="sidebar_section_title">
+								<h3>Información base octal</h3>
+							</div>
+
+							<div class="latest_posts">
+
+								<!-- Latest Post -->
+								<div class="latest_post">
+									<div class="latest_post_image">
+										<img src="{% static 'images/imagenConversiones.jpg' %}">
+									</div>
+									<div class="latest_post_title"><a href="news_post.html"> es también muy usado en la computación por tener una base que es potencia exacta de 2 o de la numeración binaria. Esta característica hace que la conversión a binario
+                                                                                            o viceversa sea bastante simple. El sistema octal usa 8 dígitos (0, 1, 2, 3, 4, 5, 6,7) y tienen el mismo valor que en el sistema de numeración decimal.</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+	<div class="home">
+		<div class="home_background_container prlx_parent">
+			<div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
+		</div>
+		<div class="home_content">
+			<h1>Conversión base decimal</h1>
+		</div>
+	</div>
+
+<div class="news">
+		<div class="container">
+			<div class="row">
+
+				<!-- News Column -->
+
+				<div class="col-lg-8">
+
+					<div class="news_posts">
+						<!-- News Post -->
+						<div class="news_post">
+							<div class="news_post_top d-flex flex-column flex-sm-row">
+								<div class="news_post_date_container">
+									<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
+										<div>1</div>
+										<div>Dec</div>
+									</div>
+								</div>
+								<div class="news_post_title_container">
+									<div class="news_post_title">
+										<a href="">Ingrese un número de base decimal </a>
+									</div>
+									<div class="news_post_meta">
+										<span class="news_post_author">por GRUPO 2</span>
+									</div>
+
+
+									<div class="news_post_title">
+										<form class="form" action="/resultadoDecimal/" method="POST">
+											{% csrf_token %}
+											<div class="camposLogin">
+												<input type="text" id="id_username" class="form-control"  name="decimal" required>
+											</div>
+											<input class="btn" type="submit" value="Calcular">
+										</form>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="sidebar">
+						<div class="sidebar_section">
+							<div class="sidebar_section_title">
+								<h3>Información base decimal</h3>
+							</div>
+
+							<div class="latest_posts">
+
+								<!-- Latest Post -->
+								<div class="latest_post">
+									<div class="latest_post_image">
+										<img src="{% static 'images/imagenConversiones.jpg' %}">
+									</div>
+									<div class="latest_post_title"><a href="news_post.html"> Es el sistema de numeración posicional en el que las cantidades son representadas mediante la base aritmética del número diez
+																							se tiene la capacidad de construir todas las cifras mediante diez símbolos (cifras) que son los que conocemos todos: 0, 1,2 3, 4, 5, 6, 7, 8 y 9.</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

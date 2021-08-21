@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+	<div class="home">
+		<div class="home_background_container prlx_parent">
+			<div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
+		</div>
+		<div class="home_content">
+			<h1>64 Bits</h1>
+		</div>
+	</div>
+
+<div class="news">
+		<div class="container">
+			<div class="row">
+
+				<!-- News Column -->
+
+				<div class="col-lg-8">
+
+					<div class="news_posts">
+						<!-- News Post -->
+						<div class="news_post">
+							<div class="news_post_top d-flex flex-column flex-sm-row">
+								<div class="news_post_date_container">
+									<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
+										<div>1</div>
+										<div></div>
+									</div>
+								</div>
+								<div class="news_post_title_container">
+									<div class="news_post_title">
+										<a href="">Ingrese un número decimal</a>
+									</div>
+									<div class="news_post_meta">
+										<span class="news_post_author">por GRUPO 2</span>
+									</div>
+
+
+									<div class="news_post_title">
+										<form class="form" action="/iee/64BitsAccion/" method="POST">
+											{% csrf_token %}
+											<div class="camposLogin">
+												<input type="text" id="id_username" class="form-control"  name="64bits" required>
+											</div>
+
+											<input class="btn" type="submit" value="Calcular">
+										</form>
+										<h2 style="color:#ffa006;" >RESULTADO:   </h2>
+									</div>
+
+								</div>
+							</div>
+							<br>
+							<div class="news_post_title">
+										<table class="default">
+											  <tr>
+												<td><h2 style="color:#ffa006;" >NÚMERO DIGITADO:   </h2></td>
+												<td><h2 style="color:black;" >  {{ numero }} </h2></td>
+											  </tr>
+										</table>
+										<table class="default">
+											  <tr>
+												<td><h2 style="color:#ffa006;" >BINARIO:   </h2></td>
+												<td><h2 style="color:black;" >  {{ binario }} </h2></td>
+											  </tr>
+										</table>
+
+										<table class="default">
+											  <tr>
+												<td><h2 style="color:#ffa006;" >NORMALIZACIÓN:  </h2></td>
+												<td><h2 style="color:black;" >  {{ normal }} </h2></td>
+											  </tr>
+										</table>
+
+										<table class="default">
+											  <tr>
+												<td><h2 style="color:#ffa006;" >SIGNO: </h2></td>
+												<td><h2 style="color:black;" >  {{ signo }} </h2></td>
+											  </tr>
+										</table>
+
+										<table class="default">
+											  <tr>
+												<td><h2 style="color:#ffa006;" >MANTISA: </h2></td>
+												<td><h2 style="color:black;" > {{ mantisa }} </h2></td>
+											  </tr>
+										</table>
+
+										<table class="default">
+											  <tr>
+												<td><h2 style="color:#ffa006;" >EXPONENTE DECIMAL: </h2></td>
+												<td><h2 style="color:black;" >  {{ expDecimal }} </h2></td>
+											  </tr>
+										</table>
+
+										<table class="default">
+											  <tr>
+												<td><h2 style="color:#ffa006;" >EXPONENTE BINARIO: </h2></td>
+												<td><h2 style="color:black;" >{{ expBin }}</h2></td>
+											  </tr>
+										</table>
+
+									</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+	<div class="home">
+		<div class="home_background_container prlx_parent">
+			<div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
+		</div>
+		<div class="home_content">
+			<h1>Derivadas</h1>
+		</div>
+	</div>
+
+<div class="news">
+		<div class="container">
+			<div class="row">
+
+				<!-- News Column -->
+
+				<div class="col-lg-8">
+
+					<div class="news_posts">
+						<!-- News Post -->
+						<div class="news_post">
+							<div class="news_post_top d-flex flex-column flex-sm-row">
+								<div class="news_post_date_container">
+									<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
+										<div>1</div>
+										<div></div>
+									</div>
+								</div>
+								<div class="news_post_title_container">
+									<div class="news_post_title">
+										<a href="">Ingrese una función</a>
+									</div>
+									<div class="news_post_meta">
+										<span class="news_post_author">por GRUPO 2</span>
+									</div>
+
+
+									<div class="news_post_title">
+										<form class="form" action="/derivadasSolucion/" method="POST">
+											{% csrf_token %}
+											<div class="camposLogin">
+												<input type="text" id="id_username" class="form-control"  name="funcion" required>
+											</div>
+
+                                            <div class="camposLogin">
+												<input type="text" id="id_username2" class="form-control"  name="evaluar" required>
+											</div>
+											<input class="btn" type="submit" value="Calcular">
+										</form>
+										<div style="top:60; left:40;">
+
+										<table class="default">
+											  <tr>
+												<td><h2 style="color:#ffa006;" >Derivada 1:   </h2></td>
+												<td><h2 style="color:black;" >  {{ derivada }} </h2></td>
+											  </tr>
+											<tr>
+												<td><h2 style="color:#ffa006;" >Evaluada:   </h2></td>
+												<td><h2 style="color:black;" >  {{ evaluada }} </h2></td>
+											  </tr>
+										</table>
+										<table class="default">
+											  <tr>
+												<td><h2 style="color:#ffa006;" >Derivada 2:   </h2></td>
+												<td><h2 style="color:black;" >  {{ derivada2 }} </h2></td>
+											  </tr>
+											<tr>
+												<td><h2 style="color:#ffa006;" >Evaluada:   </h2></td>
+												<td><h2 style="color:black;" >  {{ evaluada2 }} </h2></td>
+											  </tr>
+										</table>
+
+
+								</div>
+									</div>
+
+								</div>
+
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+{% endblock %}

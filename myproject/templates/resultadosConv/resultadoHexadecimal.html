@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+	<div class="home">
+		<div class="home_background_container prlx_parent">
+			<div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
+		</div>
+		<div class="home_content">
+			<h1>Resultado conversión hexadecimal</h1>
+		</div>
+	</div>
+
+<div class="news">
+		<div class="container">
+			<div class="row">
+
+				<!-- News Column -->
+
+
+
+					<div class="news_posts">
+						<!-- News Post -->
+						<div class="news_post">
+							<div class="news_post_top d-flex flex-column flex-sm-row">
+								<div class="news_post_date_container">
+									<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
+										<div>1</div>
+										<div>Dec</div>
+									</div>
+								</div>
+
+								<div class="news_post_title_container">
+									<div class="news_post_title">
+										<a href="">convertido a Decimal:  {{decimal }} </a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="news_posts">
+						<!-- News Post -->
+						<div class="news_post">
+							<div class="news_post_top d-flex flex-column flex-sm-row">
+								<div class="news_post_date_container">
+									<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
+										<div>2</div>
+										<div>Bin</div>
+									</div>
+								</div>
+
+								<div class="news_post_title_container">
+									<div class="news_post_title">
+										<a href=""> convertido a Binario:  {{ binario }} </a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				  	<div class="news_posts">
+						<!-- News Post -->
+						<div class="news_post">
+							<div class="news_post_top d-flex flex-column flex-sm-row">
+								<div class="news_post_date_container">
+									<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
+										<div>3</div>
+										<div>Oct</div>
+									</div>
+								</div>
+
+								<div class="news_post_title_container">
+									<div class="news_post_title">
+										<a href="">convertido a Octal:  {{ octal }} </a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

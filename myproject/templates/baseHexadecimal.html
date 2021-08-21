@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+	<div class="home">
+		<div class="home_background_container prlx_parent">
+			<div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
+		</div>
+		<div class="home_content">
+			<h1>Conversión base hexadecimal</h1>
+		</div>
+	</div>
+
+<div class="news">
+		<div class="container">
+			<div class="row">
+
+				<!-- News Column -->
+
+				<div class="col-lg-8">
+
+					<div class="news_posts">
+						<!-- News Post -->
+						<div class="news_post">
+							<div class="news_post_top d-flex flex-column flex-sm-row">
+								<div class="news_post_date_container">
+									<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
+										<div>1</div>
+										<div>Hex</div>
+									</div>
+								</div>
+								<div class="news_post_title_container">
+									<div class="news_post_title">
+										<a href="">Ingrese un número de base hexadecimal </a>
+									</div>
+									<div class="news_post_meta">
+										<span class="news_post_author">por GRUPO 2</span>
+									</div>
+
+
+									<div class="news_post_title">
+										<form class="form" action="/resultadoHexadecimal/" method="POST">
+											{% csrf_token %}
+											<div class="camposLogin">
+												<input type="text" id="id_username" class="form-control"  name="hexadecimal" required>
+											</div>
+											<input class="btn" type="submit" value="Calcular">
+										</form>
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4">
+					<div class="sidebar">
+						<div class="sidebar_section">
+							<div class="sidebar_section_title">
+								<h3>Información base hexadecimal</h3>
+							</div>
+
+							<div class="latest_posts">
+
+								<!-- Latest Post -->
+								<div class="latest_post">
+									<div class="latest_post_image">
+										<img src="{% static 'images/imagenConversiones.jpg' %}">
+									</div>
+									<div class="latest_post_title"><a href="news_post.html"> El sistema hexadecimal usa 16 símbolos para marcar un número, que son:
+									                                                         dígitos del 0 al 9 (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+										 												      y las letras de la A a la F (A, B, C, D, E, F).
+																						     Dado que se necesitan 16 símbolos en el sistema hexadecimal, las primeras
+																							 seis letras mayúsculas del alfabeto (de la A a la F) se agregan a los diez dígitos del sistema decimal para un total de 16 símbolos.</a></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
