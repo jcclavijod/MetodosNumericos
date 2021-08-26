@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 {% load static %}
+
 <html>
 <head>
 <title>calculadora</title>
@@ -45,14 +47,19 @@
 							</li>
 							<li class="main_nav_item"><a href="#">Sistema IEEE</a>
 								<ul>
-									<li ><a href="{% url '32Bits' %}">Decimal 32 Bits</a></li>
-									<li ><a href="{% url '64Bits' %}">Decimal 64 Bits</a></li>
+									<li ><a href="{% url '32Bits' %}">IEEE 32-64</a></li>
+									<li ><a href="{% url 'decimal32' %}">Binario IEEE 32</a></li>
+									<li ><a href="{% url 'decimal64' %}">Binario IEEE 64</a></li>
 
 								</ul>
 							</li>
 							<li class="main_nav_item"><a href="#">Ecuaciones no lineales</a>
 								<ul>
+
 									<li><a href="{% url 'derivadas' %}">Derivadas</a></li>
+									<li><a href="{% url 'graficar' %}">Graficar</a></li>
+									<li><a href="{% url 'newton' %}">Método Newton Raphson</a></li>
+									<li><a href="{% url 'secante' %}">Método Secante</a></li>
 								</ul>
 							</li>
 						</ul>

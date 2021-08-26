@@ -42,69 +42,18 @@
 										<form class="form" action="/iee/32BitsAccion/" method="POST">
 											{% csrf_token %}
 											<div class="camposLogin">
-												<input type="text" id="id_username" class="form-control"  name="32bits" required>
+												<input type="text" placeholder="Ingrese decimal" class="form-control"  name="32bits" required>
 											</div>
 
 											<input class="btn" type="submit" value="Calcular">
 										</form>
-										<h2 style="color:#ffa006;" >RESULTADO:   </h2>
 									</div>
 
 								</div>
 
 							</div>
 							<br>
-							<div class="news_post_title">
 
-										<table class="default">
-											  <tr>
-												<td><h2 style="color:#ffa006;" >NÚMERO DIGITADO:   </h2></td>
-												<td><h2 style="color:black;" >  {{ numero }} </h2></td>
-											  </tr>
-										</table>
-										<table class="default">
-											  <tr>
-												<td><h2 style="color:#ffa006;" >BINARIO:   </h2></td>
-												<td><h2 style="color:black;" >  {{ binario }} </h2></td>
-											  </tr>
-										</table>
-
-										<table class="default">
-											  <tr>
-												<td><h2 style="color:#ffa006;" >NORMALIZACIÓN:  </h2></td>
-												<td><h2 style="color:black;" >  {{ normal }} </h2></td>
-											  </tr>
-										</table>
-
-										<table class="default">
-											  <tr>
-												<td><h2 style="color:#ffa006;" >SIGNO: </h2></td>
-												<td><h2 style="color:black;" >  {{ signo }} </h2></td>
-											  </tr>
-										</table>
-
-										<table class="default">
-											  <tr>
-												<td><h2 style="color:#ffa006;" >MANTISA: </h2></td>
-												<td><h2 style="color:black;" > {{ mantisa }} </h2></td>
-											  </tr>
-										</table>
-
-										<table class="default">
-											  <tr>
-												<td><h2 style="color:#ffa006;" >EXPONENTE DECIMAL: </h2></td>
-												<td><h2 style="color:black;" >  {{ expDecimal }} </h2></td>
-											  </tr>
-										</table>
-
-										<table class="default">
-											  <tr>
-												<td><h2 style="color:#ffa006;" >EXPONENTE BINARIO: </h2></td>
-												<td><h2 style="color:black;" >{{ expBin }}</h2></td>
-											  </tr>
-										</table>
-
-									</div>
 				</div>
 						</div>
 					</div>

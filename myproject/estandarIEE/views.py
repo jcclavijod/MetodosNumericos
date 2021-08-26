@@ -79,41 +79,41 @@ def normalisacion(binosaurio):
 def vista64(request):
     numero = request.POST['64bits']
     if (str(numero).find(".") == -1):
-        numeroConvertidoBinario = decimalABinario(int(numero))
+        numeroConvertidoBinario2 = decimalABinario(int(numero))
     else:
-        residuo, entero = math.modf(float(numero))
-        entero = int(entero)
-        numeroConvertidoBinario = decimalABinario(
-            entero) + "." + decimalABinarioFrac(residuo)
+        residuo2, entero2 = math.modf(float(numero))
+        entero = int(entero2)
+        numeroConvertidoBinario2 = decimalABinario(
+            entero) + "." + decimalABinarioFrac(residuo2)
 
-    binario=numeroConvertidoBinario
-    print("binario: " + numeroConvertidoBinario)
-    normal = normalisacion(numeroConvertidoBinario)
+    binario2=numeroConvertidoBinario2
+    print("binario: " + numeroConvertidoBinario2)
+    normal2 = normalisacion(numeroConvertidoBinario2)
 
-    normalReal= normal
-    print("normalisacion: " + normal)
-    normal = completacion(normal)
+    normalReal2= normal2
+    print("normalisacion: " + normal2)
+    normal2 = completacion(normal2)
     if (float(numero) > 0):
         print("signo: 0")
-        signo=" 0"
+        signo2=" 0"
     else:
         print("signo: 1")
-        signo=" 1"
-    l_partes = str(normal).split('.')
+        signo2=" 1"
+    l_partes2 = str(normal2).split('.')
 
-    mantisa= l_partes[1]
-    print("mantisa: " + l_partes[1])
-    sexponente_decimal = exponente_exceso(numeroConvertidoBinario)
+    mantisa2= l_partes2[1]
+    print("mantisa: " + l_partes2[1])
+    sexponente_decimal2 = exponente_exceso(numeroConvertidoBinario2)
 
-    expDecimal=str(sexponente_decimal)
-    print("exponente decimal:" + str(sexponente_decimal))
+    expDecimal2=str(sexponente_decimal2)
+    print("exponente decimal:" + str(sexponente_decimal2))
 
-    expBin= decimalABinario(sexponente_decimal)
-    print("exponente binario:" + decimalABinario(sexponente_decimal))
+    expBin2= decimalABinario(sexponente_decimal2)
+    print("exponente binario:" + decimalABinario(sexponente_decimal2))
 
     return render(request, '64Bits.html',
-                  {'numero': numero,'binario': binario, 'normal': normalReal, 'signo': signo,
-                   'mantisa': mantisa, 'expDecimal': expDecimal, 'expBin': expBin})
+                  {'numero': numero,'binario2': binario2, 'normal2': normalReal2, 'signo2': signo2,
+                   'mantisa2': mantisa2, 'expDecimal2': expDecimal2, 'expBin2': expBin2})
 
 
 
@@ -153,35 +153,46 @@ def vista32(request):
         residuo, entero = math.modf(float(numero))
         entero = int(entero)
         numeroConvertidoBinario = decimalABinario32(entero)+"."+decimalABinarioFrac32(residuo)
-
     binario = numeroConvertidoBinario
-    print("binario: " + numeroConvertidoBinario)
     normal = normalisacion2(numeroConvertidoBinario)
-
     normalReal = normal
-    print("normalisacion: " + normal)
     normal = completacion2(normal)
     if(float(numero) > 0):
-        print("signo: 0" )
         signo = " 0"
     else:
-        print("signo: 1")
         signo = " 1"
     l_partes = str(normal).split('.')
-
     mantisa = l_partes[1]
-    print("mantisa: " + l_partes[1])
     sexponente_decimal = exponente_exceso2(numeroConvertidoBinario)
-
     expDecimal = str(sexponente_decimal)
-    print("exponente decimal:" + str(sexponente_decimal))
-
     expBin = decimalABinario(sexponente_decimal)
-    print("exponente binario:" + decimalABinario(sexponente_decimal))
 
-    return render(request, '32Bits.html',
+    #64
+    if (str(numero).find(".") == -1):
+        numeroConvertidoBinario2 = decimalABinario(int(numero))
+    else:
+        residuo2, entero2 = math.modf(float(numero))
+        entero = int(entero2)
+        numeroConvertidoBinario2 = decimalABinario(
+            entero) + "." + decimalABinarioFrac(residuo2)
+    binario2=numeroConvertidoBinario2
+    normal2 = normalisacion(numeroConvertidoBinario2)
+    normalReal2= normal2
+    normal2 = completacion(normal2)
+    if (float(numero) > 0):
+        signo2=" 0"
+    else:
+        signo2=" 1"
+    l_partes2 = str(normal2).split('.')
+    mantisa2= l_partes2[1]
+    sexponente_decimal2 = exponente_exceso(numeroConvertidoBinario2)
+    expDecimal2=str(sexponente_decimal2)
+    expBin2= decimalABinario(sexponente_decimal2)
+
+    return render(request, 'resultadoBits/ambosBits.html',
                   {'numero': numero, 'binario': binario, 'normal': normalReal, 'signo': signo,
-                   'mantisa': mantisa, 'expDecimal': expDecimal, 'expBin': expBin})
+                   'mantisa': mantisa, 'expDecimal': expDecimal, 'expBin': expBin,'binario2': binario2, 'normal2': normalReal2, 'signo2': signo2,
+                   'mantisa2': mantisa2, 'expDecimal2': expDecimal2, 'expBin2': expBin2})
 
 
 

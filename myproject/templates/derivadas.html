@@ -41,18 +41,42 @@
 									<div class="news_post_title">
 										<form class="form" action="/derivadasSolucion/" method="POST">
 											{% csrf_token %}
-											<div class="camposLogin">
-												<input type="text" id="id_username" class="form-control"  name="funcion" required>
-											</div>
 
-                                            <div class="camposLogin">
-												<input type="text" id="id_username2" class="form-control"  name="evaluar" required>
-											</div>
+
+											<style> table, th, td { text-align: center !important; } </style>
+										<table class="table" border="0">
+											  <tr>
+												<td><h2 style="color:#ffa006;" >Función a derivar:   </h2></td>
+												<td><div class="camposLogin">
+												<input type="text"  placeholder="Función a derivar" class="form-control"  name="funcion" required>
+											</div></td>
+											  </tr>
+											<tr>
+												<td><h2 style="color:#ffa006;" >Número a evaluar:   </h2></td>
+												<td><div class="camposLogin">
+												<input type="text" placeholder="Número a evaluar" class="form-control"  name="evaluar" required>
+											</div></td>
+											  </tr>
+										</table>
+
 											<input class="btn" type="submit" value="Calcular">
 										</form>
-										<div style="top:60; left:40;">
 
-										<table class="default">
+
+
+										<div class="news_post_title">
+										<a href="">Solución derivadas</a>
+									</div>
+									<br>
+
+										<div style="top:60; left:40;">
+										<style> table, th, td { text-align: center !important; } </style>
+										<table class="table" border="1">
+											<tr>
+												<td><h2 style="color:#ffa006;" >Funcion evaluada:   </h2></td>
+												<td><h2 style="color:black;" >  {{ f }} </h2></td>
+											  </tr>
+											<tr>
 											  <tr>
 												<td><h2 style="color:#ffa006;" >Derivada 1:   </h2></td>
 												<td><h2 style="color:black;" >  {{ derivada }} </h2></td>
@@ -62,7 +86,7 @@
 												<td><h2 style="color:black;" >  {{ evaluada }} </h2></td>
 											  </tr>
 										</table>
-										<table class="default">
+										<table class="table" border="1">
 											  <tr>
 												<td><h2 style="color:#ffa006;" >Derivada 2:   </h2></td>
 												<td><h2 style="color:black;" >  {{ derivada2 }} </h2></td>

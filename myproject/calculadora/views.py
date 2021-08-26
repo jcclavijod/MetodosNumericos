@@ -6,6 +6,13 @@ import math
 import sympy
 from sympy import *
 from sympy.parsing.sympy_parser import parse_expr
+from sympy import *
+from sympy import exp, E, log
+
+
+
+
+
 
 def vistaIndex(request):
     return render(request,"index.html")
@@ -225,7 +232,7 @@ def vistaSolucion(request):
     fun_escrita = request.POST['funcion']
     evaluador=float(request.POST['evaluar'])
     f = parse_expr(fun_escrita)
-
+    funcionEval=sympy.sympify(f).subs(x, evaluador)
     dact = diff(f, x)
     derivada = str(simplify(dact))
     evaluada = sympy.sympify(derivada).subs(x, evaluador)
@@ -235,5 +242,110 @@ def vistaSolucion(request):
     evaluada2 = sympy.sympify(derivada2).subs(x,evaluador)
 
     return render(request, 'derivadas.html',
-                  {'derivada': derivada, 'derivada2': derivada2,
+                  {'f': funcionEval,'derivada': derivada, 'derivada2': derivada2,
                    'evaluada': evaluada, 'evaluada2': evaluada2})
+
+def secanteSolucion(request):
+    f = request.POST['funcion']
+    x0 = float(request.POST['x0'])
+    x1 = float(request.POST['x1'])
+    eMax = float(request.POST['eMax'])
+    N = 100
+    lista=[]
+    funcs = vars(math)
+    for k in range(N):
+        if x1 - x0 == 0:
+            break
+        fp = (eval(f, funcs, dict(x=x1)) - eval(f, funcs, dict(x=x0))) / (x1 - x0)
+        x = x1 - eval(f, funcs, dict(x=x1)) / fp
+        e = abs((x - x1) / x)
+        if e < eMax:
+            break
+        x0 = x1
+        x1 = x
+        fx=eval(f, funcs, dict(x=x))
+        lista.append([str(k+1),str(x),str(fx),str(e)])
+        em=e
+        xtot=x
+        print(k + 1, x, eval(f, funcs, dict(x=x)), e)
+    return render(request, 'resultadoSecante/secante.html',
+                  {'raiz': xtot, 'error': str(em),
+                   'fx': str(fx),'lista':lista})
+
+def vistaSecante(request):
+    return render(request,"secante.html")
+
+
+def vistaDecimal32(request):
+    return render(request, "decimalABit32.html")
+
+def vistaDecimalBit32(request):
+    S = request.POST['signo']
+    E = request.POST['exponente']
+    M = request.POST['mantisa']
+    N= S + E + M
+    a = int(N[0])        # sign,     1 bit
+    b = int(N[1:9],2)    # exponent, 8 bits
+    c = int("1"+N[9:], 2)# fraction, len(N)-9 bits
+    salida=(-1)**a * c /( 1<<( len(N)-9 - (b-127) ))
+    return render(request, 'decimalABit32.html',
+                  {'salida': salida,'signo': S,'exponente': E,'mantisa': M})
+
+
+def vistaDecimal64(request):
+    return render(request, "decimalABit64.html")
+
+def vistaDecimalBit64(request):
+    S = request.POST['signo']
+    E = request.POST['exponente']
+    M = request.POST['mantisa']
+    N = S + E + M
+    a = int(N[0])  # sign, 1 bit
+    b = int(N[1:12], 2)  # exponent, 12 bits
+    c = int("1" + N[12:], 2)  # fraction,
+    salida = (-1)**a * c /( 1<<( len(N)-12 - (b-1023) ))
+    return render(request, 'decimalABit64.html',
+                  {'salida': salida,'signo': S,'exponente': E,'mantisa': M})
+
+def vistaGraficar(request):
+    return render(request, "graficas.html")
+
+
+def f(expr,value):
+    x = var('x')
+    res = expr.subs(x, value)
+    return res
+
+def derivada(expr,value):
+    x = Symbol('x')
+    deriva = diff(expr, x)
+    return deriva.subs(x, value)
+
+def newton(expr,x_old):
+    x = var('x')
+    x_new = x_old - f(expr,x_old)/derivada(expr,x_old)
+    return x_new
+
+def vistaNewton(request):
+    x = var('x')
+    user_input = request.POST['funcion']
+    expr = sympify(user_input)
+    x_old = float(request.POST['x0'])
+    RAE = float(request.POST['error'])
+    RAE_now = 100
+    counter = 0
+    lista=[]
+    while RAE < RAE_now:
+        x_new = newton(expr,x_old)
+        selisih = abs(x_new-x_old)
+        RAE_now = abs(selisih/x_new)
+        x_old = x_new
+        counter = counter+1
+        print(counter, x_new, RAE_now)
+        lista.append([counter, x_new, RAE_now])
+    return render(request, 'resultadoSecante/newtonSolucion.html',
+                  {'raiz': x_new, 'error': RAE_now,
+                   'lista': lista})
+
+def vistaNew(request):
+    return render(request, "newton.html")
