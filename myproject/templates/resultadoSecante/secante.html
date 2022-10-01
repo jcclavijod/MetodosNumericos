@@ -16,10 +16,45 @@
 <div class="news">
 		<div class="container">
              <div class="news_post_title">
-										<a href="">Resultados inmediatos</a>
+										<a href="">Datos de entrada</a>
 									</div>
             <br>
 			<div class="row">
+
+				<!-- News Column -->
+<div style="top:60; left:40;">
+
+<style> table, th, td { text-align: center !important; } </style>
+											<table class="table" border="5.0">
+										  <tr>
+												<td><h2 style="color:#ffa006;" > f(x):   </h2></td>
+												<td><h2 style="color:black;" >  {{ f }} </h2></td>
+											  </tr>
+											<tr>
+												<td><h2 style="color:#ffa006;" >x0:   </h2></td>
+												<td><h2 style="color:black;" >  {{ x0 }} </h2></td>
+											  </tr>
+											<tr>
+												<td><h2 style="color:#ffa006;" >x1:   </h2></td>
+												<td><h2 style="color:black;" >  {{ x1 }} </h2></td>
+											  </tr>
+												<tr>
+												<td><h2 style="color:#ffa006;" >Error:   </h2></td>
+												<td><h2 style="color:black;" >  {{ eMax }} </h2></td>
+											  </tr>
+										</table>
+</div>
+
+
+
+
+<div class="news">
+		<div class="container">
+             <div class="news_post_title">
+										<a href="">Resultados inmediatos</a>
+									</div>
+            <br>
+
 
 				<!-- News Column -->
 <div style="top:60; left:40;">
@@ -51,14 +86,16 @@
 										  <tr >
 												<td><h2 style="color:#ffa006;" > # Iteración  </h2></td>
 												<td><h2 style="color:#ffa006;" > Raíz </h2></td>
-											  	<td><h2 style="color:#ffa006;" > F(x)  </h2></td>
-											  	<td><h2 style="color:#ffa006;" >  Error relativo </h2></td>
+											  	<td><h2 style="color:#ffa006;" > Error relativo  </h2></td>
+											  	<td><h2 style="color:#ffa006;" >  Extremo x0 </h2></td>
+											  	<td><h2 style="color:#ffa006;" >  Extremo x1 </h2></td>
 											  </tr>
-											{% for x,y,z,k in lista %}
+											{% for x,y,z,k,l in lista %}
 
 											<tr>
 												<td><h2 style="color:black;" >{{ x }}   </h2></td>
 												<td><h2 style="color:black;" >{{ y }}   </h2></td>
+												<td><h2 style="color:black;" >{{ l }}   </h2></td>
 												<td><h2 style="color:black;" >{{ z }}   </h2></td>
 												<td><h2 style="color:black;" >{{ k }}   </h2></td>
 

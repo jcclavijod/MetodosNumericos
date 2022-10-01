@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+	<div class="home">
+		<div class="home_background_container prlx_parent">
+			<div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
+		</div>
+		<div class="home_content">
+			<h1>Raices Polinomicas </h1>
+		</div>
+	</div>
+
+<div class="news">
+		<div class="container">
+			<div class="row">
+
+				<!-- News Column -->
+
+				<div class="col-lg-8">
+
+					<div class="news_posts">
+						<!-- News Post -->
+						<div class="news_post">
+
+								<div class="news_post_date_container">
+									<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
+										<div>S</div>
+										<div></div>
+									</div>
+								</div>
+								<div class="news_post_title_container">
+
+
+
+
+									<div class="news_post_title">
+										<form class="form" action="/raizr/" method="POST">
+											{% csrf_token %}
+
+											<style> table, th, td { text-align: center !important; } </style>
+											<table class="table" border="0">
+											  <tr>
+												<td><h2 style="color:#ffa006;" > Ingrese una función:   </h2></td>
+												<td><div class="camposLogin">
+												<input type="text"  placeholder="Ingrese función" class="form-control"  name="funcion" required>
+											</div></td>
+											  </tr>
+											</table>
+
+
+
+
+
+
+
+
+
+
+											<input class="btn" type="submit" value="Calcular">
+										</form>
+
+
+
+
+
+
+
+
+									</div>
+
+
+								</div>
+
+						</div>
+
+
+					</div>
+
+
+
+				</div>
+
+
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+
+{% endblock %}

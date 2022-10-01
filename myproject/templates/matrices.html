@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+	<script type="text/javascript" src="{% static 'js/matrix.js' %}"></script>
+
+	<div class="home">
+		<div class="home_background_container prlx_parent">
+			<div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
+		</div>
+		<div class="home_content">
+			<h1>Método Newton </h1>
+		</div>
+	</div>
+
+<div class="news">
+		<div class="container">
+			<div class="row">
+
+					<div class="col-md-2">
+					<span>Filas: </span>
+					<input type="text" id="val_m" class="form-control"  name="Rows" required>
+					</div>
+
+					<div class="col-md-2">
+					<span>Columnas: </span>
+					<input type="text" id="val_n" class="form-control"  name="Columns" required>
+					</div>
+
+					<div class="col-md-3">
+					</br>
+						<style type="text/css">
+					  .btn-primary{
+						   padding: 2px;
+						font-weight: 100;
+						font-size: 20px;
+						color: #ffffff;
+						background-color: #1883ba;
+						border-radius: 6px;
+						border: 2px solid #0016b0;
+					  }
+					</style>
+						<button id="set" class="btn-primary" >Generar matriz</button>
+					</div>
+
+
+
+
+                </br>
+
+                </div>
+
+                </div>
+
+                <div class="col-lg-12">
+                <form action="" method="post" id="mat_vals">
+                {% csrf_token %}
+                <div class="hide_serializer">
+                {{ form }}
+                </div>
+                </br>
+                 <input id="get" class="btn-primary" type="submit" value="Calculate" />
+                </form>
+                </div>
+
+
+
+						</div>
+
+
+					</div>
+
+	</div>
+
+
+
+
+{% endblock %}

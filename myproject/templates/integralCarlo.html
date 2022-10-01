@@ -7,7 +7,7 @@
         <div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
     </div>
     <div class="home_content">
-        <h1>Derivadas</h1>
+        <h1>Monte Carlo</h1>
     </div>
 </div>
 
@@ -39,33 +39,44 @@
 
 
                                 <div class="news_post_title">
-                                    <form class="form" action="/derivadasSolucion/" method="POST">
+                                    <form class="form" action="/carloSolucion/" method="POST">
                                         {% csrf_token %}
-
 
                                         <style> table, th, td { text-align: center !important; } </style>
                                         <table class="table" border="0">
 											<tr>
-												<th><h2 style="color:#ffa006;">Función a derivar: </h2></th>
-												<th><h2 style="color:#ffa006;">Número a evaluar: </h2></th>
-												<th></th>
-												<th></th>
+												<th><h2 style="color:#ffa006;"> Ingrese una función: </h2></th>
+												<th><h2 style="color:#ffa006;">Ingrese limite inferior: </h2></th>
+												<th><h2 style="color:#ffa006;">Ingrese limite superior: </h2></th>
+												<th><h2 style="color:#ffa006;">Ingrese # particiones: </h2></th>
 											</tr>
-
                                             <tr>
                                                 <td>
                                                     <div class="camposLogin">
-                                                        <input type="text" placeholder="Función a derivar"
+                                                        <input type="text" placeholder="Ingrese función"
                                                                class="form-control" name="funcion" required>
                                                     </div>
                                                 </td>
 												<td>
                                                     <div class="camposLogin">
-                                                        <input type="text" placeholder="Número a evaluar"
-                                                               class="form-control" name="evaluar" required>
+                                                        <input type="text" placeholder="Extremo izquierdo"
+                                                               class="form-control" name="a" required>
+                                                    </div>
+                                                </td>
+												                                                <td>
+                                                    <div class="camposLogin">
+                                                        <input type="text" placeholder="Extremo derecho"
+                                                               class="form-control" name="b" required>
+                                                    </div>
+                                                </td>
+												<td>
+                                                    <div class="camposLogin">
+                                                        <input type="text" placeholder="Numero de particiones"
+                                                               class="form-control" name="n" required>
                                                     </div>
                                                 </td>
                                             </tr>
+
                                         </table>
 
                                         <input class="btn" type="submit" value="Calcular">
@@ -73,7 +84,7 @@
 
 
                                     <div class="news_post_title">
-                                        <a href="">Solución derivadas</a>
+                                        <a href="">Solución integral</a>
                                     </div>
                                     <br>
 
@@ -82,26 +93,26 @@
                                         <table class="table" border="1">
 											<tr>
 												<th><h2 style="color:#ffa006;">Funcion evaluada: </h2></th>
-												<th><h2 style="color:#ffa006;">Derivada 1: </h2></th>
-												<th><h2 style="color:#ffa006;">Evaluada: </h2></th>
-												<th></th>
+												<th><h2 style="color:#ffa006;">Limite inferior: </h2></th>
+												<th><h2 style="color:#ffa006;">Limite superior: </h2></th>
+												<th><h2 style="color:#ffa006;">Numero particiones: </h2></th>
 											</tr>
-
                                             <tr>
                                                 <td><h2 style="color:black;"> {{ f }} </h2></td>
-												<td><h2 style="color:black;"> {{ derivada }} </h2></td>
-												<td><h2 style="color:black;"> {{ evaluada }} </h2></td>
+												<td><h2 style="color:black;"> {{ limIn }} </h2></td>
+												<td><h2 style="color:black;"> {{ limSup }} </h2></td>
+												<td><h2 style="color:black;"> {{ nPart }} </h2></td>
                                             </tr>
 
                                         </table>
                                         <table class="table" border="1">
 											<tr>
-												<th><h2 style="color:#ffa006;">Derivada 2: </h2></th>
-												<th><h2 style="color:#ffa006;">Evaluada: </h2></th>
+												<th><h2 style="color:#ffa006;">Números aleatorios: </h2></th>
+												<th><h2 style="color:#ffa006;">Valor integral: </h2></th>
 											</tr>
                                             <tr>
-                                                <td><h2 style="color:black;"> {{ derivada2 }} </h2></td>
-												<td><h2 style="color:black;"> {{ evaluada2 }} </h2></td>
+                                                <td><h2 style="color:black;"> {{ num }} </h2></td>
+												<td><h2 style="color:black;"> {{ valor }} </h2></td>
                                             </tr>
                                         </table>
 

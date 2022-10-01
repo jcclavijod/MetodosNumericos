@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+	<div class="home">
+		<div class="home_background_container prlx_parent">
+			<div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
+		</div>
+		<div class="home_content">
+			<h1>Raices polinomicas</h1>
+		</div>
+	</div>
+
+<div class="news">
+		<div class="container">
+             <div class="news_post_title">
+										<a href="">Raices</a>
+									</div>
+            <br>
+			<div class="row">
+
+				<!-- News Column -->
+<div style="top:60; left:40;">
+
+											<style> table, th, td { text-align: center !important; } </style>
+											<table class="table" border="5.0">
+												<tr>
+												<td><h2 style="color:#ffa006;" > Función:   </h2></td>
+												<td><h2 style="color:black;" >  {{ f }} </h2></td>
+											  </tr>
+										  <tr>
+												<td><h2 style="color:#ffa006;" > Raíz:   </h2></td>
+												<td><h2 style="color:black;" >  {{ raiz }} </h2></td>
+											  </tr>
+										
+										</table>
+								</div>
+
+</div>
+               
+									
+
+
+		</div>
+	</div>
+{% endblock %}

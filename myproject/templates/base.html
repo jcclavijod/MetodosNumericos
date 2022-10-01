@@ -15,6 +15,9 @@
 <link rel="stylesheet" type="text/css" href="{% static 'styles/news_styles.css' %}" >
 <link rel="stylesheet" type="text/css" href="{% static 'styles/news_responsive.css' %}"  >
 {% endblock %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body>
 
@@ -27,7 +30,7 @@
 			<!-- Logo -->
 			<div class="logo_container">
 				<div class="logo">
-					<img src="{% static 'images/calculadora.png' %}" alt="" width="80">
+					<img src="{% static 'images/calculadora.png' %}" alt="" width="55">
 					<span>one++</span>
 				</div>
 			</div>
@@ -53,13 +56,30 @@
 
 								</ul>
 							</li>
-							<li class="main_nav_item"><a href="#">Ecuaciones no lineales</a>
+							<li class="main_nav_item"><a href="#">Ecuaciones</a>
 								<ul>
-
+									<li><a href="{% url 'raiz' %}">Raices Polinomicas</a></li>
 									<li><a href="{% url 'derivadas' %}">Derivadas</a></li>
 									<li><a href="{% url 'graficar' %}">Graficar</a></li>
 									<li><a href="{% url 'newton' %}">Método Newton Raphson</a></li>
 									<li><a href="{% url 'secante' %}">Método Secante</a></li>
+									<li><a href="{% url 'bisecion' %}">Bisecion</a></li>
+									<li><a href="{% url 'posicionr' %}">Método falsa posición</a></li>
+								</ul>
+							</li>
+							<li class="main_nav_item"><a href="#">Integrales</a>
+								<ul>
+									<li><a href="{% url 'trapecio' %}">Trapecios</a></li>
+									<li ><a href="{% url 'rectangulos' %}">Rectangular</a></li>
+									<li ><a href="{% url 'Simpson' %}">Simpson</a></li>
+									<li ><a href="{% url 'carlo' %}">Monte Carlo</a></li>
+								</ul>
+							</li>
+							<li class="main_nav_item"><a href="#">matrices pro</a>
+								<ul>
+									<li><a href="{% url 'get_digits' %}">Operaciones con Matrices</a></li>
+									<li><a href="{% url 'mostrar_form_ajuste_de_curvas' %}">Ajuste de Curvas</a></li>
+									<li><a href="{% url 'get_digits2' %}">Gauss Jordan</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -89,7 +109,7 @@
 			<div class="footer_bar d-flex flex-column flex-sm-row align-items-center">
 				<div class="footer_copyright">
 					<span>
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los derechos reservados | Grupo 2 <i class="fa fa-heart" aria-hidden="true"></i>
                     </span>
 				</div>
 
@@ -111,6 +131,12 @@
 <script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
 <script src="{% static 'plugins/easing/easing.js' %}"></script>
 <script src="{% static 'js/custom.js' %}"></script>
+
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/matriz1.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/matriz2.js' %}"></script>
+
 {% endblock %}
 </body>
 </html>

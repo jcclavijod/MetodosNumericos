@@ -2,31 +2,31 @@
 {% load static %}
 {% block content %}
 
-	<div class="home">
-		<div class="home_background_container prlx_parent">
-			<div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
-		</div>
-		<div class="home_content">
-			<h1>Derivadas</h1>
-		</div>
-	</div>
+<div class="home">
+    <div class="home_background_container prlx_parent">
+        <div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
+    </div>
+    <div class="home_content">
+        <h1>Graficar</h1>
+    </div>
+</div>
 
 <div class="news">
-		<div class="container">
-			<div class="row">
+    <div class="container">
+        <div class="row">
 
-				<!-- News Column -->
+            <!-- News Column -->
 
-				<div class="col-lg-8">
+            <div class="col-lg-8">
 
-					<div class="news_posts">
-						<!-- News Post -->
-						<div class="news_post">
-							<div class="news_post_top d-flex flex-column flex-sm-row">
+                <div class="news_posts">
+                    <!-- News Post -->
+                    <div class="news_post">
+                        <div class="news_post_top d-flex flex-column flex-sm-row">
 
-								<div class="news_post_title_container">
+                            <div class="news_post_title_container">
 
-<style type="text/css">
+                                <style type="text/css">
 
       canvas {
         outline: 1px solid lightgray;
@@ -63,7 +63,7 @@
         width: 75px;
         box-sizing: border-box;
         margin: 0;
-        margin-left: 5px;
+        margin-left: 9px;
       }
       input[name='escala-range'] {
         float: left;
@@ -109,57 +109,59 @@
       li:nth-child(odd) {
         background-color: #white;
       }
-    </style>
-    <canvas width="100" height="200"
-      >Este navegador no soporta el elemento canvas.</canvas
-    >
-    <form style="margin: 0 auto;" >
-      <input name="formula" value="" type="text" /><!--
+
+                                </style>
+                                <canvas width="100" height="200"
+                                >Este navegador no soporta el elemento canvas.
+                                </canvas
+                                >
+                                <form style="margin: 0 auto;">
+                                    <input name="formula" value="" type="text"/><!--
 	 --><input
-        name="color"
-        type="color"
-        value="#BC8D6B"
-        title="Click derecho para cambiar a un color aleatorio."
-      /><!--
-	 --><input name="agregar" value="Agregar" type="submit" />
-    </form>
-    <div id="contenedor" style="margin: 0 auto;">
-      <ol id="funciones"></ol>
-      <label for="escala-input">Escala:</label><br />
-      <input
-        id="escala-input"
-        type="range"
-        min="1"
-        max="200"
-        value="100"
-        name="escala-range"
-        title="Escala"
-      />
-      <input
-        type="number"
-        name="escala-number"
-        min="1"
-        value="100"
-        title="Escala"
-      />
+                                        name="color"
+                                        type="color"
+                                        value="#BC8D6B"
+                                        title="Click derecho para cambiar a un color aleatorio."
+                                /><!--
+	 --><input name="agregar" value="Agregar" type="submit"/>
+                                </form>
+                                <div id="contenedor" style="margin: 0 auto;">
+                                    <ol id="funciones"></ol>
+                                    <label for="escala-input">Escala:</label><br/>
+                                    <input
+                                            id="escala-input"
+                                            type="range"
+                                            min="1"
+                                            max="200"
+                                            value="100"
+                                            name="escala-range"
+                                            title="Escala"
+                                    />
+                                    <input
+                                            type="number"
+                                            name="escala-number"
+                                            min="1"
+                                            value="100"
+                                            title="Escala"
+                                    />
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
-								</div>
 
-							</div>
+</div>
 
-						</div>
-					</div>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
-    <script src="{% static 'js/expresiones.js' %}"></script>
-    <script src="{% static 'js/for-mula.js' %}"></script>
+<script src="{% static 'js/expresiones.js' %}"></script>
+<script src="{% static 'js/for-mula.js' %}"></script>
 {% endblock %}
 
 

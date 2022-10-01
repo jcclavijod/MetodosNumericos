@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="home">
+    <div class="home_background_container prlx_parent">
+        <div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
+    </div>
+    <div class="home_content">
+        <h1>Ajuste de curvas</h1>
+    </div>
+</div>
+
+<div class="contenedor font_web">
+    <h3 class="resultado_bases"></h3>
+    <div class="container">
+        <form action="/resolver_ajuste_curvas/" method="POST">
+            {% csrf_token %}
+            <table>
+                <tbody>
+
+                <tr>
+                    <th><h2 style="color:black;">valores de X: </h2></th>
+                    <th><h2 style="color:black;">valores de Y: </h2></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" class="form-control" name="x" placeholder="">
+                    </td>
+
+                    <td>
+                        <input type="text" class="form-control" name="y" placeholder="">
+                    </td>
+
+                    <td><input class="btn" name="calcular" type="submit" value="calcular" style="margin-left:300px">
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+            <div class="news_post_title">
+                <a href="#">Solución ajuste de curvas</a>
+            </div>
+            <style> table, th, td { text-align: center !important; } </style>
+            <table class="table" border="1">
+                <tr>
+
+                    {% for r in result %}
+                <tr>
+                    <td><h2 style="color:#ffa006;">Grado {{r.0}} </h2>
+                        <h3 style="color:black;">{{r.1}}</h3></td>
+                    <td><h2 style="color:#ffa006;">Coeficiente </h2>
+                        <h3 style="color:black;">{{r.2}}</h3>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tr>
+            </table>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -2,131 +2,129 @@
 {% load static %}
 {% block content %}
 
-	<div class="home">
-		<div class="home_background_container prlx_parent">
-			<div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
-		</div>
-		<div class="home_content">
-			<h1>Conversión (64 Bits)</h1>
-		</div>
-	</div>
+<div class="home">
+    <div class="home_background_container prlx_parent">
+        <div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
+    </div>
+    <div class="home_content">
+        <h1>Conversión (64 Bits)</h1>
+    </div>
+</div>
 
 <div class="news">
-		<div class="container">
-			<div class="row">
+    <div class="container">
+        <div class="row">
 
-				<!-- News Column -->
+            <!-- News Column -->
 
-				<div class="col-lg-8">
-
-
-						<!-- News Post -->
-
-<style> table, th, td { text-align: center !important; } </style>
-											<table class="table" border="0">
-											  <tr>
-												<td><div class="news_post_date_container">
-									<div class="news_post_date d-flex flex-column align-items-center justify-content-center">
-										<div>B</div>
-										<div></div>
-									</div>
-								</div></td>
-												<td><div class="news_post_title">
-										<a href="">FORMATO IEEE 754(64 BITS)</a>
-									</div></td>
-											  </tr>
-
-								<div class="news_post_title_container">
+            <div class="col-lg-8">
 
 
+                <!-- News Post -->
 
-									<div class="news_post_title">
-										<form class="form" action="/decimalABit64/" method="POST">
-											{% csrf_token %}
+                <style> table, th, td { text-align: center !important; } </style>
+                <table class="table" border="0">
+                    <tr>
+                        <td>
+                            <div class="news_post_date_container">
+                                <div class="news_post_date d-flex flex-column align-items-center justify-content-center">
+                                    <div>B</div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="news_post_title">
+                                <a href="">FORMATO IEEE 754(64 BITS)</a>
+                            </div>
+                        </td>
+                    </tr>
 
-											<style> table, th, td { text-align: center !important; } </style>
-											<table class="table" border="0">
-											  <tr>
-												<td><h2 style="color:#ffa006;" > Ingrese el signo:   </h2></td>
-												<td><div class="camposLogin">
-												<input type="text"  placeholder="Signo" class="form-control"  name="signo" required>
-											</div></td>
-											  </tr>
-											<tr>
-												<td><h2 style="color:#ffa006;" >Ingrese el exponente:  </h2></td>
-												<td><div class="camposLogin">
-												<input type="text" placeholder="Exponente" class="form-control"  name="exponente" required>
-											</div></td>
-											  </tr>
-												<tr>
-												<td><h2 style="color:#ffa006;" >Ingrese la mantisa:  </h2></td>
-												<td> <div class="camposLogin">
-												<input type="text" placeholder="Mantisa" class="form-control"  name="mantisa" required>
-											</div></td>
-											  </tr>
-
-											</table>
-											<input class="btn" type="submit" value="Calcular">
-										</form>
-
-<div class="news_post_title">
-										<a href="">Solución conversión</a>
-									</div>
-									<br>
-
-										<div style="top:60; left:40;">
-										<style> table, th, td { text-align: center !important; } </style>
-										<table class="table" border="1">
-                                            <tr>
-												<td><h2 style="color:#ffa006;" >signo ingresado:   </h2></td>
-												<td><h2 style="color:black;" >  {{ signo }} </h2></td>
-											  </tr>
-
-                                            <tr>
-												<td><h2 style="color:#ffa006;" >Exponente ingresado:   </h2></td>
-												<td><h2 style="color:black;" >  {{ exponente }} </h2></td>
-											  </tr>
-                                             <tr>
-												<td><h2 style="color:#ffa006;" >Mantisa ingresada:   </h2></td>
-												<td><h2 style="color:black;" >  {{ mantisa }} </h2></td>
-											  </tr>
-											  <tr>
-												<td><h2 style="color:#ffa006;" >Resultado:   </h2></td>
-												<td><h2 style="color:black;" >  {{ salida }} </h2></td>
-											  </tr>
-
-										</table>
+                    <div class="news_post_title_container">
 
 
+                        <div class="news_post_title">
+                            <form class="form" action="/decimalABit64/" method="POST">
+                                {% csrf_token %}
 
-								</div>
+                                <style> table, th, td { text-align: center !important; } </style>
+                                <table class="table" border="0">
+
+									<tr>
+										<th><h2 style="color:#ffa006;"> Ingrese el signo: </h2></th>
+										<th><h2 style="color:#ffa006;">Ingrese el exponente: </h2></th>
+										<th><h2 style="color:#ffa006;">Ingrese la mantisa: </h2></th>
+										<th></th>
+									</tr>
+
+                                    <tr>
+                                        <td>
+                                            <div class="camposLogin">
+                                                <input type="text" placeholder="Signo" class="form-control" name="signo"
+                                                       required>
+                                            </div>
+                                        </td>
+
+										 <td>
+                                            <div class="camposLogin">
+                                                <input type="text" placeholder="Exponente" class="form-control"
+                                                       name="exponente" required>
+                                            </div>
+                                        </td>
+
+										<td>
+                                            <div class="camposLogin">
+                                                <input type="text" placeholder="Mantisa" class="form-control"
+                                                       name="mantisa" required>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <input class="btn" type="submit" value="Calcular">
+                            </form>
+
+                            <div class="news_post_title">
+                                <a href="">Solución conversión</a>
+                            </div>
+                            <br>
+
+                            <div style="top:60; left:40;">
+                                <style> table, th, td { text-align: center !important; } </style>
+                                <table class="table" border="1">
+                                    <tr>
+                                        <th><h2 style="color:#ffa006;">signo ingresado: </h2></th>
+                                        <th><h2 style="color:#ffa006;">Exponente ingresado: </h2></th>
+                                        <th><h2 style="color:#ffa006;">Mantisa ingresada: </h2></th>
+                                        <th><h2 style="color:#ffa006;">Resultado: </h2></th>
+                                    </tr>
+                                    <tr>
+                                        <td><h2 style="color:black;"> {{ signo }} </h2></td>
+                                        <td><h2 style="color:black;"> {{ exponente }} </h2></td>
+                                        <td><h2 style="color:black;"> {{ mantisa }} </h2></td>
+                                        <td><h2 style="color:black;"> {{ salida }} </h2></td>
+                                    </tr>
+
+                                </table>
 
 
+                            </div>
 
 
+                        </div>
 
 
-									</div>
+                    </div>
 
 
-								</div>
+            </div>
 
 
+        </div>
 
+    </div>
 
-
-
-				</div>
-
-
-
-			</div>
-
-		</div>
-
-	</div>
-
-
+</div>
 
 
 {% endblock %}

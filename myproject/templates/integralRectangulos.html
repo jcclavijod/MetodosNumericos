@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="home">
+    <div class="home_background_container prlx_parent">
+        <div class="home_background prlx" style="background-image:url({% static 'images/news_background.jpg' %})"></div>
+    </div>
+    <div class="home_content">
+        <h1>Integración numérica por rectángulos</h1>
+    </div>
+</div>
+
+<div class="news">
+    <div class="container">
+        <div class="row">
+
+            <!-- News Column -->
+
+            <div class="col-lg-8">
+
+                <div class="news_posts">
+                    <!-- News Post -->
+                    <div class="news_post">
+                        <div class="news_post_top d-flex flex-column flex-sm-row">
+                            <div class="news_post_date_container">
+                                <div class="news_post_date d-flex flex-column align-items-center justify-content-center">
+                                    <div>1</div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="news_post_title_container">
+                                <div class="news_post_title">
+                                    <a href="">Ingrese una función</a>
+                                </div>
+                                <div class="news_post_meta">
+                                    <span class="news_post_author">por GRUPO 2</span>
+                                </div>
+
+
+                                <div class="news_post_title">
+                                    <form class="form" action="/rectangulosSolucion/" method="POST">
+                                        {% csrf_token %}
+
+                                        <style> table, th, td { text-align: center !important; } </style>
+                                        <table class="table" border="0">
+                                            <tr>
+                                                <td><h2 style="color:#ffa006;"> Ingrese una función: </h2></td>
+                                                <td>
+                                                    <div class="camposLogin">
+                                                        <input type="text" placeholder="Ingrese función"
+                                                               class="form-control" name="funcion" required>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><h2 style="color:#ffa006;">Ingrese extremo izquierdo: </h2></td>
+                                                <td>
+                                                    <div class="camposLogin">
+                                                        <input type="text" placeholder="Extremo izquierdo"
+                                                               class="form-control" name="a" required>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><h2 style="color:#ffa006;">Ingrese extremo derecho: </h2></td>
+                                                <td>
+                                                    <div class="camposLogin">
+                                                        <input type="text" placeholder="Extremo derecho"
+                                                               class="form-control" name="b" required>
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td><h2 style="color:#ffa006;">Ingrese # particiones: </h2></td>
+                                                <td>
+                                                    <div class="camposLogin">
+                                                        <input type="text" placeholder="Numero de particiones"
+                                                               class="form-control" name="n" required>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+
+                                        <input class="btn" type="submit" value="Calcular">
+                                    </form>
+
+
+                                    <div class="news_post_title">
+                                        <a href="">Solución integral</a>
+                                    </div>
+                                    <br>
+
+                                    <div style="top:60; left:40;">
+                                        <style> table, th, td { text-align: center !important; } </style>
+                                        <table class="table" border="1">
+                                            <tr>
+                                                <td><h2 style="color:#ffa006;">Funcion evaluada: </h2></td>
+                                                <td><h2 style="color:black;"> {{ f }} </h2></td>
+                                            </tr>
+                                            <tr>
+                                            <tr>
+                                                <td><h2 style="color:#ffa006;">Extremo izquierdo: </h2></td>
+                                                <td><h2 style="color:black;"> {{ limIn }} </h2></td>
+                                            </tr>
+                                            <tr>
+                                                <td><h2 style="color:#ffa006;">Extremo derecho: </h2></td>
+                                                <td><h2 style="color:black;"> {{ limSup }} </h2></td>
+                                            </tr>
+                                            <tr>
+                                                <td><h2 style="color:#ffa006;">Numero particiones: </h2></td>
+                                                <td><h2 style="color:black;"> {{ nPart }} </h2></td>
+                                            </tr>
+                                        </table>
+                                        <table class="table" border="1">
+                                            <tr>
+                                                <td><h2 style="color:#ffa006;">Punto extremo izquierdo: </h2></td>
+                                                <td><h2 style="color:black;"> {{ solDer}} </h2></td>
+                                            </tr>
+                                            <tr>
+                                                <td><h2 style="color:#ffa006;">Punto extremo derecho: </h2></td>
+                                                <td><h2 style="color:black;"> {{ solIzq }} </h2></td>
+                                            </tr>
+                                            <tr>
+                                                <td><h2 style="color:#ffa006;">Punto medio: </h2></td>
+                                                <td><h2 style="color:black;"> {{ solMed }} </h2></td>
+                                            </tr>
+                                        </table>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

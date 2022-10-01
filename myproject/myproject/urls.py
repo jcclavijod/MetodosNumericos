@@ -15,16 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from ecuaciones.views import vistaSolucion
-from estandarIEE.views import vista32, vista64
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('calculadora.urls')),
     path('iee/', include('estandarIEE.urls')),
-
-    path('32BitsAccion/', vista32, name='32BitsAccion'),
-    path('64BitsAccion/', vista64, name='64BitsAccion'),
-    path('derivadasSolucion/', vistaSolucion, name='derivadasSolucion'),
 ]
